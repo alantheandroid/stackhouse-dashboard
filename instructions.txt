@@ -1,0 +1,18 @@
+creare dashboard
+
+sidebar con lista di funzioni
+navbar con info sullo user
+tabella con dati -> dettaglio
+
+stack
+CRA
+Material UI
+TypeScript
+Redux
+Redux Saga
+
+componenti:
+form
+select
+radio
+input
