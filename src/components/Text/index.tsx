@@ -3,7 +3,7 @@ import React from 'react';
 
 type Props = {
   children: React.ReactNode;
-} & Pick<TypographyProps, 'variant' | 'color' | 'fontSize'>;
+} & Pick<TypographyProps, 'className' | 'variant' | 'color' | 'fontSize'>;
 
 function Text({ children, ...props }: Props) {
   return <Typography {...props}>{children}</Typography>;

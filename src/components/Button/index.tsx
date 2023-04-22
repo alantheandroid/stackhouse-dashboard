@@ -4,14 +4,10 @@ import Text from '../Text';
 
 type Props = {
   text?: string;
-} & Pick<ButtonProps, 'variant'>;
+} & Pick<ButtonProps, 'className' | 'variant' | 'fullWidth'>;
 
 function Button({ text, ...props }: Props) {
-  return (
-    <BaseButton {...props}>
-      {text && <Text variant="body1">{text}</Text>}
-    </BaseButton>
-  );
+  return <BaseButton {...props}>{text && <Text>{text}</Text>}</BaseButton>;
 }
 
 export default Button;
