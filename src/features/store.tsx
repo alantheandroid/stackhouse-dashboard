@@ -4,7 +4,6 @@ import { all } from 'redux-saga/effects';
 
 const rootReducer = {};
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function* rootSaga() {
   yield all([]);
 }
