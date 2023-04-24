@@ -1,13 +1,16 @@
 import { Button as BaseButton, ButtonProps } from '@mui/material';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Text from '../Text';
 
 type Props = {
-  text?: string;
-} & Pick<ButtonProps, 'className' | 'variant' | 'fullWidth'>;
+  children?: ReactNode;
+} & Pick<
+  ButtonProps,
+  'className' | 'variant' | 'fullWidth' | 'startIcon' | 'endIcon'
+>;
 
-function Button({ text, ...props }: Props) {
-  return <BaseButton {...props}>{text && <Text>{text}</Text>}</BaseButton>;
+function Button({ children, ...props }: Props) {
+  return <BaseButton {...props}>{children}</BaseButton>;
 }
 
 export default Button;
