@@ -1,6 +1,5 @@
-import { Button as BaseButton, ButtonProps } from '@mui/material';
 import React, { ReactNode } from 'react';
-import Text from '../Text';
+import { Button as BaseButton, ButtonProps } from '@mui/material';
 
 type Props = {
   children?: ReactNode;
