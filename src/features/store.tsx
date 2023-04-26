@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
+import { appReducer } from './app/slice';
 
-const rootReducer = {};
+const rootReducer = {
+  app: appReducer,
+};
 
 function* rootSaga() {
   yield all([]);
