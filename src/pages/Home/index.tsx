@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Home as HomeIcon } from '@mui/icons-material';
+import React from 'react';
 import Navbar from '../../components/Navbar';
-import Button from '../../components/Button';
 import Sidebar from '../../components/Sidebar';
+import { Box, Button } from '@mui/material';
 
 function Home() {
   return (
-    <>
-      <Navbar title="Dashboard" />
-      <Sidebar></Sidebar>
-    </>
+    <Box display="flex" flexDirection="column">
+      <Navbar title="Dashboard" position="static" />
+      <Button>Button</Button>
+      <Sidebar>Questa è la sidebar</Sidebar>
+    </Box>
   );
 }
 
