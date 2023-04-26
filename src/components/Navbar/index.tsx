@@ -1,25 +1,21 @@
 import React from 'react';
-import {
-  AppBar,
-  AppBarProps,
-  Box,
-  IconButton,
-  Paper,
-  Toolbar,
-} from '@mui/material';
+import { AppBar, AppBarProps, IconButton, Toolbar } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useDispatch } from 'react-redux';
+import { appActions } from '../../features/app/slice';
 
 type Props = {
   menuIcon?: boolean;
   title?: string;
-} & Pick<AppBarProps, 'className'>;
+} & Pick<AppBarProps, 'className' | 'variant' | 'position'>;
 
 function Navbar({ menuIcon = true, title, ...props }: Props) {
+  const dispatch = useDispatch();
   return (
     <AppBar {...props}>
       <Toolbar>
         {menuIcon && (
-          <IconButton>
+          <IconButton onClick={() => dispatch(appActions.toggleSidebar())}>
             <MenuIcon />
           </IconButton>
         )}
