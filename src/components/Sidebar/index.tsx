@@ -1,51 +1,27 @@
-import {
-  Container,
-  Divider,
-  Drawer,
-  DrawerProps,
-  IconButton,
-  List,
-  Toolbar,
-  // Theme,
-  // useMediaQuery,
-} from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
-import React, { ReactNode } from 'react';
+import React from 'react'
+import { StyledSidebar, StyledSidebarHeader } from './styled'
+import { Box, IconButton } from '@mui/material'
+import FirstPageIcon from '@mui/icons-material/FirstPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSidebarState } from '../../features/app/selectors';
 import { appActions } from '../../features/app/slice';
+import Text from '../Text';
 
 type Props = {
-  children?: ReactNode;
-} & Pick<DrawerProps, 'className'>;
-
-function Sidebar({ children, ...props }: Props) {
-  // const mobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
-  const open = useSelector(selectSidebarState);
-  const dispatch = useDispatch();
-
-  return (
-    <Drawer open={open} {...props} variant="persistent">
-      <Toolbar
-        sx={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-        }}
-      >
-        <IconButton
-          onClick={() => dispatch(appActions.toggleSidebar())}
-          size="small"
-        >
-          <ArrowBackIcon color="disabled" />
-        </IconButton>
-      </Toolbar>
-      <Divider />
-      <Container>
-        <List>{children}</List>
-      </Container>
-    </Drawer>
-  );
+  isOpen?: boolean
 }
 
-export default Sidebar;
+export const Sidebar = ({isOpen}:Props) => {
+  const dispatch = useDispatch()
+  const siderStatus = useSelector(selectSidebarState)
+  return (
+    <StyledSidebar isOpen={isOpen ?? siderStatus}>
+      <StyledSidebarHeader>
+       <Text variant='h5'>LOGO</Text>
+      <IconButton onClick={() => {dispatch(appActions.toggleSidebar())}}>
+        <FirstPageIcon color='disabled'/>
+      </IconButton>
+      </StyledSidebarHeader>
+    </StyledSidebar>
+  )
+}
