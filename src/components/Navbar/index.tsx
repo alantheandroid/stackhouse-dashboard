@@ -9,7 +9,7 @@ export const Navbar = () => {
 
     <DashBoardNavbar>
       <IconButton aria-label="search">
-            <GridSearchIcon color='action'/>
+            <GridSearchIcon color='disabled'/>
         </IconButton>
         <NavMenu />
     </DashBoardNavbar>
