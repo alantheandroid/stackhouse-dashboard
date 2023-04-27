@@ -6,7 +6,9 @@ import App from './App';
 import { store } from './features/store';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@mui/material';
-import theme from './styles/theme';
+import DashBoardTheme from './styles/theme';
+
+const appTheme = DashBoardTheme()
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,7 +16,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={appTheme}>
         <App />
       </ThemeProvider>
     </Provider>

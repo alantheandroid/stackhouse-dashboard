@@ -21,6 +21,6 @@ export const DataGrid = ({
       columns={columns}
       autoHeight={autoHeight}
       checkboxSelection={checkboxSelection}
-    ></StyledDataGrid>
+    />
   );
 };
