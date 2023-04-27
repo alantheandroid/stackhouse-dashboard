@@ -1,7 +1,8 @@
 import React from 'react';
-import Home from './pages/Home';
+import Home from './Pages/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+
 
 function App(): JSX.Element {
   return (

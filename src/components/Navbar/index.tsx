@@ -1,28 +1,17 @@
-import React from 'react';
-import { AppBar, AppBarProps, IconButton, Toolbar } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useDispatch } from 'react-redux';
-import { appActions } from '../../features/app/slice';
+import React from 'react'
+import { DashBoardNavbar } from './styled'
+import { IconButton } from '@mui/material'
+import { GridSearchIcon } from '@mui/x-data-grid'
+import { NavMenu } from './NavMenu'
 
-type Props = {
-  menuIcon?: boolean;
-  title?: string;
-} & Pick<AppBarProps, 'className' | 'variant' | 'position'>;
-
-function Navbar({ menuIcon = true, title, ...props }: Props) {
-  const dispatch = useDispatch();
+export const Navbar = () => {
   return (
-    <AppBar {...props} elevation={6}>
-      <Toolbar>
-        {menuIcon && (
-          <IconButton onClick={() => dispatch(appActions.toggleSidebar())}>
-            <MenuIcon />
-          </IconButton>
-        )}
-        {title}
-      </Toolbar>
-    </AppBar>
-  );
-}
 
-export default Navbar;
+    <DashBoardNavbar>
+      <IconButton aria-label="search">
+            <GridSearchIcon color='action'/>
+        </IconButton>
+        <NavMenu />
+    </DashBoardNavbar>
+  )
+}

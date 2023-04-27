@@ -6,7 +6,6 @@ import LanguageIcon from '@mui/icons-material/Language';
 import AppsIcon from '@mui/icons-material/Apps';
 import SortIcon from '@mui/icons-material/Sort';
 
-
 export const NavMenu = () => {
   return ( 
         <Box>
