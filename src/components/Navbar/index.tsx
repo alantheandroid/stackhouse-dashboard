@@ -12,7 +12,7 @@ type Props = {
 function Navbar({ menuIcon = true, title, ...props }: Props) {
   const dispatch = useDispatch();
   return (
-    <AppBar {...props}>
+    <AppBar {...props} elevation={6}>
       <Toolbar>
         {menuIcon && (
           <IconButton onClick={() => dispatch(appActions.toggleSidebar())}>
