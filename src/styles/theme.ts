@@ -289,7 +289,7 @@ export type themeSettingsProps = {
 };
 
 const DashBoardTheme = () => {
-  let theme: Theme = createTheme(baseOptions);
+  const theme: Theme = createTheme(baseOptions);
 
   theme.shadows[1] = '0px 4px 23px rgba(0, 0, 0, 0.12)';
   theme.shadows[2] = '0px 0px 21px 1px rgba(0, 0, 0, 0.07)';

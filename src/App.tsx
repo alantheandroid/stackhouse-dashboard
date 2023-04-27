@@ -1,6 +1,5 @@
 import React from 'react';
-import Home from './Pages/Home';
-
+import Home from './pages/Home';
 
 function App(): JSX.Element {
   return (
