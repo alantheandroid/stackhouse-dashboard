@@ -12,7 +12,7 @@ function Home() {
       <Sidebar></Sidebar>
       <>
       <Navbar title="Dashboard" />
-      <DataGrid rows={rows} columns={columns} checkboxSelection></DataGrid>
+      <DataGrid rows={rows} columns={columns}></DataGrid>
       </>
     </>
   );
