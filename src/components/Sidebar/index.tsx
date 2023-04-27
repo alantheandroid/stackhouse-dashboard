@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledSidebar, StyledSidebarHeader } from './styled'
-import { Box, IconButton } from '@mui/material'
+import { IconButton } from '@mui/material'
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSidebarState } from '../../features/app/selectors';
