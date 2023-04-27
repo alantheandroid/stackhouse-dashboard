@@ -6,8 +6,9 @@ type Props = {
     rows: GridRowsProp
     columns: GridColDef[]
     autoHeight?: boolean
+    checkboxSelection?: boolean
 }
 
-export const DataGrid = ({rows, columns, autoHeight}:Props) => {
-   return <MuiDataGrid rows={rows} columns={columns} autoHeight={autoHeight}></MuiDataGrid>
+export const DataGrid = ({rows, columns, autoHeight, checkboxSelection}:Props) => {
+   return <MuiDataGrid rows={rows} columns={columns} autoHeight={autoHeight} checkboxSelection={checkboxSelection}></MuiDataGrid>
 }
