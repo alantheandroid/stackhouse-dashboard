@@ -1,15 +1,30 @@
-import React, { ReactNode } from 'react';
-import { Button as BaseButton, ButtonProps } from '@mui/material';
+import React, { ReactNode } from 'react'
+import { Button as BaseButton } from '@mui/material'
+
+type ButtonVariants = 'text' | 'contained' | 'outlined'
 
 type Props = {
-  children?: ReactNode;
-} & Pick<
-  ButtonProps,
-  'className' | 'variant' | 'fullWidth' | 'startIcon' | 'endIcon'
->;
-
-function Button({ children, ...props }: Props) {
-  return <BaseButton {...props}>{children}</BaseButton>;
+    variant?: ButtonVariants
+    title: string
+    startIcon?: ReactNode
+    endIcon?: ReactNode
+    size?: 'small' | 'medium' | 'large'
+    disabled?: boolean
+    isLoading?: boolean
+    onClick: () => void
 }
 
-export default Button;
+export const Buttons = ({variant='contained', title, startIcon, endIcon, size='small', disabled, onClick}:Props) => {
+  return (
+    <BaseButton 
+    variant={variant} 
+    startIcon={startIcon} 
+    endIcon={endIcon} 
+    size={size}
+    disabled={disabled} 
+    onClick={onClick}
+    >
+        {title}
+    </BaseButton>
+  )
+}
