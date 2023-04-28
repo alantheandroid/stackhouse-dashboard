@@ -6,7 +6,6 @@ import { NavMenu } from './NavMenu'
 
 export const Navbar = () => {
   return (
-
     <DashBoardNavbar>
       <IconButton aria-label="search">
             <GridSearchIcon color='disabled'/>

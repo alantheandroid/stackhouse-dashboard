@@ -3,5 +3,12 @@ import { DataGrid } from '@mui/x-data-grid';
 
 export const StyledDataGrid = styled(DataGrid)`
     width: 100%;
-    margin-top: 70px;
+    background-color: white;
+`
+
+export const DataGridContainer = styled.div`
+    margin-top: 2rem;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: 0 auto;
 `
