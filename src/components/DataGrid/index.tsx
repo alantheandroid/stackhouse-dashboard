@@ -1,6 +1,6 @@
 import React from 'react';
 import { GridRowsProp, GridColDef } from '@mui/x-data-grid';
-import { DataGridContainer, StyledDataGrid } from './styled';
+import {  StyledDataGrid } from './styled';
 
 type Props = {
   rows: GridRowsProp;
@@ -18,14 +18,15 @@ export const DataGrid = ({
   hidefooter
 }: Props) => {
   return (
-    <DataGridContainer>
-      <StyledDataGrid
+    <div>
+    <StyledDataGrid
         rows={rows}
         columns={columns}
         autoHeight={autoHeight}
         checkboxSelection={checkboxSelection}
         hideFooter={hidefooter}
-      />
-    </DataGridContainer>
+        />
+        </div>
+
   );
 };

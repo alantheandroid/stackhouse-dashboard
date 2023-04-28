@@ -6,9 +6,3 @@ export const StyledDataGrid = styled(DataGrid)`
     background-color: white;
 `
 
-export const DataGridContainer = styled.div`
-    margin-top: 2rem;
-    max-width: fit-content;
-    max-height: fit-content;
-    margin: 0 auto;
-`

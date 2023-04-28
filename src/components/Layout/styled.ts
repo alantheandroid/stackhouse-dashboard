@@ -13,5 +13,5 @@ flex-direction: column;
 flex: 1;
 max-width: 1240px;
 margin: 0 auto;
-gap: 3rem;
+gap: 1.5rem;
 `
