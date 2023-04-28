@@ -10,5 +10,4 @@ export const DashBoardNavbar = styled.div`
     backdrop-filter: blur(6px);
     background-color: transparent;
     justify-content: space-between;
-    margin-right: 4rem;
 `

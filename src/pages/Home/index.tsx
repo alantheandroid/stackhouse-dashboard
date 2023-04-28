@@ -1,9 +1,14 @@
 import React from 'react';
+import { DataGrid } from '../../components/DataGrid';
+import { columns, rows } from './mock';
+import { Searchbar } from '../../components/Searchbar';
 
 function Home() {
   return (
-<div></div>
-    
+  <>
+    <Searchbar placeholder='Find ticket' onChange={() => {}}/>
+    <DataGrid rows={rows} columns={columns} checkboxSelection hidefooter/>
+  </>  
   );
 }
 
