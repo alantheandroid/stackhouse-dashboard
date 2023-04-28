@@ -27,8 +27,8 @@ export const NavMenu = () => {
             <IconButton>
                 <AppsIcon color='disabled'/>
             </IconButton>
-            <Button variant='outlined' size='small' sx={{borderRadius: '20px'}}>
-                <Box display={'flex'} gap={1}><Text variant='body1'>Ciao iuser</Text><Avatar /></Box>
+            <Button variant='outlined' size='small' sx={{border: '1px solid lightgrey', borderRadius: '20px'}}>
+                <Box display={'flex'} gap={1}><Text variant='body1'>Ciao, Nome Cognome</Text><Avatar /></Box>
             </Button>
         </Box>
   )

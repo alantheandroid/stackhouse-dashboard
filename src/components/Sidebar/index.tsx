@@ -15,7 +15,7 @@ export const Sidebar = ({isOpen}:Props) => {
   const dispatch = useDispatch()
   const siderStatus = useSelector(selectSidebarState)
   return (
-    <StyledSidebar isOpen={isOpen ?? siderStatus}>
+    <StyledSidebar isOpen={isOpen ?? !siderStatus}>
       <StyledSidebarHeader>
        <Text variant='h5'>LOGO</Text>
       <IconButton onClick={() => {dispatch(appActions.toggleSidebar())}}>
