@@ -10,7 +10,6 @@ type Props = {
   disabled?: boolean
   required?: boolean
   isDisabled?: boolean
-  destroyByChange?: boolean
   onChange: (value?: string) => void
 }
 
