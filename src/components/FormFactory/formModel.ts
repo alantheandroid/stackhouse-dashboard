@@ -10,6 +10,7 @@ export type FormElementType = {
   id: string;
   options?: OptionsType[];
   title?: string;
+  placeholder?: string;
 };
 
 export type FormType = {

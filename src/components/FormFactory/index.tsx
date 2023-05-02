@@ -1,5 +1,5 @@
 import { FormType } from './formModel';
-import React from 'react';
+import React, { useState } from 'react';
 import { FormElementContainer } from '../FormElementContainer';
 
 type FormFactoryProps = {
@@ -8,39 +8,47 @@ type FormFactoryProps = {
 
 export const FormFactory = ({ form }: FormFactoryProps) => {
   const { elements } = form;
+  const [selectedRadio, setSelectedRadio] = useState<string | undefined>(
+    undefined
+  );
 
   return (
     <>
-      {elements.map((element, index) => {
+      {elements.map((element) => {
         switch (element.type) {
           case 'input-text':
             return (
-              <FormElementContainer element={element}>
-                <input key={index} type="text" />
+              <FormElementContainer key={element.id} element={element}>
+                <input placeholder={element.placeholder} type="text" />
               </FormElementContainer>
             );
           case 'input-number':
             return (
-              <FormElementContainer element={element}>
-                <input key={index} type="number" />
+              <FormElementContainer key={element.id} element={element}>
+                <input type="number" />
               </FormElementContainer>
             );
           case 'input-date':
             return (
-              <FormElementContainer element={element}>
-                <input key={index} type="date" />
+              <FormElementContainer key={element.id} element={element}>
+                <input type="date" />
               </FormElementContainer>
             );
           case 'textarea':
-            return <textarea key={index} />;
+            return (
+              <FormElementContainer key={element.id} element={element}>
+                <textarea />
+              </FormElementContainer>
+            );
           case 'select':
             return (
-              <FormElementContainer element={element}>
-                <select key={index}>
-                  {element.options?.map((option, index) => {
+              <FormElementContainer key={element.id} element={element}>
+                <p>{element.title}</p>
+                <select>
+                  {element.options?.map((item) => {
                     return (
-                      <option key={index} value={option.value}>
-                        {option.value}
+                      <option key={item.value + element.id} value={item.value}>
+                        {item.value}
                       </option>
                     );
                   })}
@@ -49,11 +57,11 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
             );
           case 'checkbox':
             return (
-              <FormElementContainer element={element}>
+              <FormElementContainer key={element.id} element={element}>
                 <p>{element.title}</p>
-                {element.options?.map((item, index) => {
+                {element.options?.map((item) => {
                   return (
-                    <React.Fragment key={index}>
+                    <React.Fragment key={item.value + element.id}>
                       <input
                         type="checkbox"
                         name={item.label}
@@ -68,11 +76,18 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
             );
           case 'radio':
             return (
-              <FormElementContainer element={element}>
-                {element.options?.map((item, index) => {
+              <FormElementContainer key={element.id} element={element}>
+                {element.options?.map((item) => {
                   return (
-                    <React.Fragment key={index}>
-                      <input type="radio" id={item.label} value={item.value} />
+                    <React.Fragment key={item.value + element.id}>
+                      <input
+                        type="radio"
+                        name={element.id}
+                        id={item.label}
+                        value={item.value}
+                        checked={selectedRadio === item.value}
+                        onChange={() => setSelectedRadio(item.value)}
+                      />
                       <label htmlFor={item.label}>{item.value}</label>
                     </React.Fragment>
                   );
@@ -80,7 +95,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
               </FormElementContainer>
             );
           default:
-            return null; // o gestione dell'errore
+            return null;
         }
       })}
     </>
