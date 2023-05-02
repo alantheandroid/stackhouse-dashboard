@@ -3,14 +3,31 @@
 // The form preview is a component that renders the form created by the form builder
 // the form builder is a component that renders the form elements
 
-import React from 'react';
+import React, { useEffect} from 'react';
 import { FormFactory } from '../../components/FormFactory';
 import { mockForm } from './mock';
+import { useDispatch } from 'react-redux';
+import { CompoundMsgType } from '../../features/compoundMsg/model';
 
-export const FormBuilder = () => {
+type FormBuilderProps = {
+  valueFromState: CompoundMsgType | undefined
+};
+
+export const FormBuilder = ({valueFromState}: FormBuilderProps) => {
   return (
     <div>
-      <FormFactory form={mockForm} />
+      <FormFactory
+        onChange={(id: string, value: string | number | boolean) => console.log(value)}
+        form={mockForm}
+        value={valueFromState} // from app state
+        /**
+         *  obj = {
+         *  dynamicIdFromElement: "hello world",
+         * form: formId,
+         * items: [image, table, form]
+         * }
+         */
+      />
     </div>
   );
 };

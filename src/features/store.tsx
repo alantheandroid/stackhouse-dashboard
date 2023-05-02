@@ -3,10 +3,12 @@ import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 import { appReducer } from './app/slice';
 import { formBuilderReducer } from './formBuilder/slice';
+import { compoundMsgReducer } from './compoundMsg/slice';
 
 const rootReducer = {
   app: appReducer,
   formBuilder: formBuilderReducer,
+  compoundMsg: compoundMsgReducer
 };
 
 function* rootSaga() {
