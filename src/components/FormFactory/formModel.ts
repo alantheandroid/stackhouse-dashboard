@@ -9,8 +9,9 @@ export type FormElementType = {
     | 'textarea';
   id: string;
   options?: OptionsType[];
-  title?: string;
+  title: string;
   placeholder?: string;
+  value?: string;
 };
 
 export type FormType = {

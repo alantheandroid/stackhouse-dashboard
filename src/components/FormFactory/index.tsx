@@ -6,7 +6,7 @@ import { elementGeneratorMap } from './elementMapper';
 
 type FormFactoryProps = {
   form: FormType;
-  onChange: (id: string, value: string | number | boolean) => void;
+  onChange: (id: string, value: string | number | boolean | undefined) => void;
   value: CompoundMsgType | undefined;
 };
 
