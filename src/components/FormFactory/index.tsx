@@ -23,7 +23,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
           case 'select':
             return (
               <select key={index}>
-                {element.options!.map((option, index) => {
+                {element.options?.map((option, index) => {
                   return (
                     <option key={index} value={option.value}>
                       {option.value}
@@ -36,7 +36,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
             return (
               <div key={index}>
                 <p>{element.title}</p>
-                {element.options!.map((item, index) => {
+                {element.options?.map((item, index) => {
                   return (
                     <React.Fragment key={index}>
                       <input
@@ -54,7 +54,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
           case 'radio':
             return (
               <div key={index}>
-                {element.options!.map((item, index) => {
+                {element.options?.map((item, index) => {
                   return (
                     <React.Fragment key={index}>
                       <input type="radio" id={item.label} value={item.value} />
