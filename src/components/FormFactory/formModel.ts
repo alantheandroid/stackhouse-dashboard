@@ -14,6 +14,7 @@ export type FormElementType = {
 
 export type FormType = {
   elements: FormElementType[];
+  formId: string;
 };
 
 export type OptionsType = {
