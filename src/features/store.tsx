@@ -2,9 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 import { appReducer } from './app/slice';
+import { formBuilderReducer } from './formBuilder/slice';
 
 const rootReducer = {
   app: appReducer,
+  formBuilder: formBuilderReducer,
 };
 
 function* rootSaga() {
