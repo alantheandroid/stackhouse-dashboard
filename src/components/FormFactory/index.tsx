@@ -1,5 +1,6 @@
 import { FormType } from '../../utils/formModel';
 import React from 'react';
+import { FormElementContainer } from '../FormElementContainer';
 
 type FormFactoryProps = {
   form: FormType;
@@ -13,28 +14,42 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
       {elements.map((element, index) => {
         switch (element.type) {
           case 'input-text':
-            return <input key={index} type="text" />;
+            return (
+              <FormElementContainer type={element.type}>
+                <input key={index} type="text" />
+              </FormElementContainer>
+            );
           case 'input-number':
-            return <input key={index} type="number" />;
+            return (
+              <FormElementContainer type={element.type}>
+                <input key={index} type="number" />
+              </FormElementContainer>
+            );
           case 'input-date':
-            return <input key={index} type="date" />;
+            return (
+              <FormElementContainer type={element.type}>
+                <input key={index} type="date" />
+              </FormElementContainer>
+            );
           case 'textarea':
             return <textarea key={index} />;
           case 'select':
             return (
-              <select key={index}>
-                {element.options?.map((option, index) => {
-                  return (
-                    <option key={index} value={option.value}>
-                      {option.value}
-                    </option>
-                  );
-                })}
-              </select>
+              <FormElementContainer type={element.type}>
+                <select key={index}>
+                  {element.options?.map((option, index) => {
+                    return (
+                      <option key={index} value={option.value}>
+                        {option.value}
+                      </option>
+                    );
+                  })}
+                </select>
+              </FormElementContainer>
             );
           case 'checkbox':
             return (
-              <div key={index}>
+              <FormElementContainer type={element.type}>
                 <p>{element.title}</p>
                 {element.options?.map((item, index) => {
                   return (
@@ -49,11 +64,11 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
                     </React.Fragment>
                   );
                 })}
-              </div>
+              </FormElementContainer>
             );
           case 'radio':
             return (
-              <div key={index}>
+              <FormElementContainer type={element.type}>
                 {element.options?.map((item, index) => {
                   return (
                     <React.Fragment key={index}>
@@ -62,7 +77,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
                     </React.Fragment>
                   );
                 })}
-              </div>
+              </FormElementContainer>
             );
           default:
             return null; // o gestione dell'errore
