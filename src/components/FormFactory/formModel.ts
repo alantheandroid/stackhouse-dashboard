@@ -7,6 +7,7 @@ export type FormElementType = {
     | 'checkbox'
     | 'radio'
     | 'textarea';
+  id: string;
   options?: OptionsType[];
   title?: string;
 };

@@ -1,4 +1,4 @@
-import { FormType } from '../../utils/formModel';
+import { FormType } from './formModel';
 import React from 'react';
 import { FormElementContainer } from '../FormElementContainer';
 

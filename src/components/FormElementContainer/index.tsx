@@ -4,7 +4,7 @@
 // like this: <FormElementContainer><input /></FormElementContainer>
 
 import React from 'react';
-import { FormElementType } from '../../utils/formModel';
+import { FormElementType } from '../FormFactory/formModel';
 
 type FormElementContainerProps = {
   children: React.ReactNode;
