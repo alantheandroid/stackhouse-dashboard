@@ -15,19 +15,19 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
         switch (element.type) {
           case 'input-text':
             return (
-              <FormElementContainer type={element.type}>
+              <FormElementContainer element={element}>
                 <input key={index} type="text" />
               </FormElementContainer>
             );
           case 'input-number':
             return (
-              <FormElementContainer type={element.type}>
+              <FormElementContainer element={element}>
                 <input key={index} type="number" />
               </FormElementContainer>
             );
           case 'input-date':
             return (
-              <FormElementContainer type={element.type}>
+              <FormElementContainer element={element}>
                 <input key={index} type="date" />
               </FormElementContainer>
             );
@@ -35,7 +35,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
             return <textarea key={index} />;
           case 'select':
             return (
-              <FormElementContainer type={element.type}>
+              <FormElementContainer element={element}>
                 <select key={index}>
                   {element.options?.map((option, index) => {
                     return (
@@ -49,7 +49,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
             );
           case 'checkbox':
             return (
-              <FormElementContainer type={element.type}>
+              <FormElementContainer element={element}>
                 <p>{element.title}</p>
                 {element.options?.map((item, index) => {
                   return (
@@ -68,7 +68,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
             );
           case 'radio':
             return (
-              <FormElementContainer type={element.type}>
+              <FormElementContainer element={element}>
                 {element.options?.map((item, index) => {
                   return (
                     <React.Fragment key={index}>

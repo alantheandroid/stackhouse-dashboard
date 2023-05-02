@@ -4,15 +4,16 @@
 // like this: <FormElementContainer><input /></FormElementContainer>
 
 import React from 'react';
+import { FormElementType } from '../../utils/formModel';
 
 type FormElementContainerProps = {
   children: React.ReactNode;
-  type: string;
+  element: FormElementType;
 };
 
 export const FormElementContainer = ({
   children,
-  type,
+  element,
 }: FormElementContainerProps) => {
   return <div>{children}</div>;
 };
