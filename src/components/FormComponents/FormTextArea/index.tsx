@@ -1,34 +1,40 @@
-import { Box } from '@mui/material';
 import React from 'react';
+import { Box } from '@mui/material';
 import Text from '../../Text';
-import { Checkbox } from '../../Checkbox';
 import { OptionsType } from '../../FormFactory/formModel';
 
 type Props = {
   label: string;
   value?: string;
   disabled?: boolean;
-  isDisabled?: boolean;
   required?: boolean;
+  isDisabled?: boolean;
   options?: OptionsType[];
-  onChange: (value?: boolean) => void;
+  onChange: (value: string) => void;
 };
 
-export const FormCheckbox = ({
+export const FormTextArea = ({
   label,
   value,
   disabled,
   isDisabled,
   onChange,
 }: Props) => {
+  const handleChange = (value: string) => {
+    onChange(value);
+  };
   const handleDisabled = disabled ?? isDisabled;
-
   return (
-    <Box flexDirection="column" gap="4px" alignItems="center">
+    <Box flexDirection="column" gap="4px">
       <Box justifyContent="flex-start">
         <Text>{label}</Text>
       </Box>
-      <Checkbox checked={true} disabled={handleDisabled} onChange={onChange} />
+      <textarea
+        value={value}
+        placeholder={label}
+        disabled={handleDisabled}
+        onChange={(e) => handleChange(e.target.value)}
+      />
     </Box>
   );
 };

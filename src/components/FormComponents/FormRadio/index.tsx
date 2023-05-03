@@ -1,8 +1,14 @@
-import { Box } from '@mui/material';
 import React from 'react';
+import { Box } from '@mui/material';
 import Text from '../../Text';
-import { Checkbox } from '../../Checkbox';
+import { Input } from '../../Input';
 import { OptionsType } from '../../FormFactory/formModel';
+
+// this component should have render the form elements of type radio
+// it must have the same structure of the FormCheckbox component
+// with the difference that it should render a radio instead of a checkbox
+// and it should use the Input component defined in the components folder
+// instead of the native html input
 
 type Props = {
   label: string;
@@ -11,10 +17,10 @@ type Props = {
   isDisabled?: boolean;
   required?: boolean;
   options?: OptionsType[];
-  onChange: (value?: boolean) => void;
+  onChange: (value?: string) => void;
 };
 
-export const FormCheckbox = ({
+export const FormRadio = ({
   label,
   value,
   disabled,
@@ -28,7 +34,7 @@ export const FormCheckbox = ({
       <Box justifyContent="flex-start">
         <Text>{label}</Text>
       </Box>
-      <Checkbox checked={true} disabled={handleDisabled} onChange={onChange} />
+      <Input disabled={handleDisabled} onChange={onChange} />
     </Box>
   );
 };

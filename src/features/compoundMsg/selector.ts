@@ -11,7 +11,12 @@ export const selectCompoundMsgs = createSelector(
   (compoundMsg: CompoundMsgType[]) => compoundMsg
 );
 
-export const makeSelectCompoundMsgFromId = (id: string) =>
+export const makeSelectCompoundMsgById = (id: string) =>
   createSelector(selectCompoundMsg, (compoundMsg: CompoundMsgType[]) =>
-    compoundMsg.find((compoundMsg) => compoundMsg.formId === id)
+    compoundMsg.find((compoundMsg) => compoundMsg.id === id)
+  );
+
+export const makeSelectCompoundMsgByFormId = (formId: string) =>
+  createSelector(selectCompoundMsg, (compoundMsg: CompoundMsgType[]) =>
+    compoundMsg.find((compoundMsg) => compoundMsg.formId === formId)
   );

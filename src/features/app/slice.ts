@@ -5,6 +5,7 @@ const initialState: AppState = {
   sidebar: {
     opened: false,
   },
+  checkBoxChecked: [],
 };
 
 const appSlice = createSlice({

@@ -2,6 +2,7 @@ import React from 'react'
 import { Box } from '@mui/material'
 import Text from '../../Text'
 import { Input } from '../../Input'
+import { OptionsType } from '../../FormFactory/formModel'
 
 
 type Props = {
@@ -10,7 +11,9 @@ type Props = {
   disabled?: boolean
   required?: boolean
   isDisabled?: boolean
-  onChange: (value?: string) => void
+  inputType?: string
+  options?: OptionsType[]
+  onChange: (value: string) => void
 }
 
 export const FormInput = ({
@@ -18,6 +21,7 @@ export const FormInput = ({
   value,
   disabled,
   isDisabled,
+  inputType,
   onChange,
 }: Props) => {
   
@@ -31,6 +35,7 @@ export const FormInput = ({
         <Text>{label}</Text>
       </Box>
       <Input
+        inputType={inputType}
         value={value}
         placeholder={label}
         disabled={handleDisabled}

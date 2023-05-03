@@ -7,6 +7,7 @@ type Props = {
   placeholder?: string
   disabled?: boolean
   className?: string
+  inputType?: string
   onChange?: (value: string) => void
   onBlur?: (value?: string) => void
   onKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void
@@ -18,6 +19,7 @@ export const Input = ({
   placeholder,
   disabled,
   className,
+  inputType,
   onChange,
   onBlur,
   onKeyUp,
@@ -27,6 +29,7 @@ export const Input = ({
 
   return (
     <MuiInput
+      type={inputType}
       value={value}
       placeholder={placeholder}
       disabled={disabled}

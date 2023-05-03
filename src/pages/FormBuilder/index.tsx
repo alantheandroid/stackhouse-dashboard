@@ -8,27 +8,24 @@ import { FormFactory } from '../../components/FormFactory';
 import { mockForm } from './mock';
 import { useDispatch } from 'react-redux';
 import { CompoundMsgType } from '../../features/compoundMsg/model';
+import { FormElementType } from '../../components/FormFactory/formModel';
 
 type FormBuilderProps = {
   valueFromState: CompoundMsgType | undefined;
+};
+
+const onChangeElement = (event: any) => {
+  console.log('event = ', event);
+  return event.target.value;
 };
 
 export const FormBuilder = ({ valueFromState }: FormBuilderProps) => {
   return (
     <div>
       <FormFactory
-        onChange={(id: string, value: string | number | boolean | undefined) =>
-          console.log(value)
-        }
+        onChange={onChangeElement}
         form={mockForm}
-        value={valueFromState} // from app state
-        /**
-         *  obj = {
-         *  dynamicIdFromElement: "hello world",
-         * form: formId,
-         * items: [image, table, form]
-         * }
-         */
+        value={valueFromState}
       />
     </div>
   );

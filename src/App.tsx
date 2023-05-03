@@ -5,10 +5,11 @@ import Layout from './components/Layout';
 import { FormBuilder } from './pages/FormBuilder';
 import { useSelector } from 'react-redux';
 import { RootState } from './features/store';
-import { makeSelectCompoundMsgFromId } from './features/compoundMsg/selector';
+import { makeSelectCompoundMsgById } from './features/compoundMsg/selector';
+import { CompoundMsgType } from './features/compoundMsg/model';
 
 function App(): JSX.Element {
-  const value = useSelector(makeSelectCompoundMsgFromId('1'));
+  const value: CompoundMsgType | undefined = useSelector(makeSelectCompoundMsgById('1'));
   return (
     <div className="App">
       <BrowserRouter>
