@@ -2,32 +2,15 @@ import React, { useState } from 'react';
 import Autocomplete, {
   AutocompleteProps,
 } from '@mui/material/Autocomplete/Autocomplete';
-import { OptionsType } from '../FormFactory/formModel';
-import {
-  TextField,
-  getAutocompleteUtilityClass,
-  useAutocomplete,
-} from '@mui/material';
+import { TextField } from '@mui/material';
 
 type Props = {} & Pick<
-  AutocompleteProps<T, false, false, false>,
-  | 'className'
-  | 'value'
-  | 'onChange'
-  | 'renderInput'
-  | 'getOptionLabel'
-  | 'options'
+  AutocompleteProps<any, false, false, false>,
+  'className' | 'value' | 'onChange' | 'getOptionLabel' | 'options'
 >;
 
-function Select<T>({
-  options,
-  value,
-  onChange,
-  renderInput,
-  getOptionLabel,
-  ...props
-}: Props) {
-  const [selectValue, setSelectValue] = useState<string | null>('');
+function Select({ options, value, onChange, getOptionLabel, ...props }: Props) {
+  const [selectValue, setSelectValue] = useState<string | null>(null);
 
   return (
     <Autocomplete

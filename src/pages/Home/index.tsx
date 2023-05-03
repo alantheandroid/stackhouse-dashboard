@@ -14,7 +14,7 @@ function Home() {
       <Input />
       <Select
         options={[
-          { label: 'None', value: '' },
+          // { label: 'None', value: '' },
           { label: 'Option', value: 'option' },
         ]}
       />
