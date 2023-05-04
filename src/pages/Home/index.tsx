@@ -2,8 +2,6 @@ import React from 'react';
 import { DataGrid } from '../../components/DataGrid';
 import { columns, rows } from './mock';
 import { Searchbar } from '../../components/Searchbar';
-import Select from '../../components/Select';
-import Input from '../../components/Input';
 
 function Home() {
   return (

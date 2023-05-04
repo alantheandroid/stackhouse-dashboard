@@ -1,16 +1,14 @@
 export type FormElementType = {
-  type:
-    | 'input-text'
-    | 'input-number'
-    | 'input-date'
-    | 'select'
-    | 'checkbox'
-    | 'radio'
-    | 'textarea';
+  type: 'input' | 'select' | 'checkbox' | 'radio' | 'textarea';
+  inputType?: 'text' | 'number' | 'date';
   id: string;
   options?: OptionsType[];
-  title?: string;
-  placeholder?: string;
+  label: string;
+  value?: string | boolean;
+  disabled?: boolean;
+  required?: boolean;
+  isDisabled?: boolean;
+  name?: string;
 };
 
 export type FormType = {

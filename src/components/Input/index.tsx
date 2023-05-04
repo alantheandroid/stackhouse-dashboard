@@ -1,10 +1,40 @@
-import { TextField, TextFieldProps } from '@mui/material';
-import React from 'react';
+import React, { KeyboardEvent } from 'react';
+import { InputProps, Input as MuiInput } from '@mui/material';
 
-type Props = {} & TextFieldProps;
+type Props = {
+  value?: string | number;
+  placeholder?: string;
+  disabled?: boolean;
+  className?: string;
+  inputType?: string;
+  onChange?: (value: string) => void;
+  onBlur?: (value?: string) => void;
+  onKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void;
+  inputProps?: InputProps;
+};
 
-function Input({ children, ...props }: Props) {
-  return <TextField {...props}>{children}</TextField>;
-}
-
-export default Input;
+export const Input = ({
+  value,
+  placeholder,
+  disabled,
+  className,
+  inputType,
+  onChange,
+  onBlur,
+  onKeyUp,
+  inputProps,
+}: Props) => {
+  return (
+    <MuiInput
+      type={inputType}
+      value={value}
+      placeholder={placeholder}
+      disabled={disabled}
+      className={className}
+      onChange={({ target }) => onChange?.(target.value)}
+      onBlur={({ target }) => onBlur?.(target.value)}
+      onKeyUp={onKeyUp}
+      {...inputProps}
+    />
+  );
+};

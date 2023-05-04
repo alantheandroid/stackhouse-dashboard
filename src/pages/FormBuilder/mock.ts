@@ -5,84 +5,77 @@ import { FormType } from '../../components/FormFactory/formModel';
 import { generateId } from '../../utils/formIdGenerator';
 
 export const mockForm: FormType = {
+  formId: generateId(),
   elements: [
     {
-      type: 'input-text',
+      type: 'input',
       id: generateId(),
-      title: 'First Name',
-      placeholder: 'Enter your first name',
+      label: 'First Name',
+      value: 'John',
+      required: true,
+      inputType: 'text',
     },
     {
-      type: 'input-text',
+      type: 'input',
       id: generateId(),
-      title: 'Last Name',
-      placeholder: 'Enter your last name',
+      label: 'Last Name',
+      value: 'Doe',
+      required: true,
+      inputType: 'text',
+    },
+    {
+      type: 'input',
+      id: generateId(),
+      label: 'Age',
+      value: '30',
+      required: true,
+      inputType: 'number',
+    },
+    {
+      type: 'input',
+      id: generateId(),
+      label: 'Date of Birth',
+      value: '1990-01-01',
+      required: true,
+      inputType: 'date',
     },
     {
       type: 'select',
       id: generateId(),
-      title: 'Country',
       options: [
-        {
-          value: 'usa',
-          label: 'USA',
-        },
-        {
-          value: 'canada',
-          label: 'Canada',
-        },
-        {
-          value: 'uk',
-          label: 'UK',
-        },
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
       ],
+      label: 'Select',
+      value: '1',
+      required: true,
     },
     {
       type: 'checkbox',
       id: generateId(),
-      title: 'Choose your favorite fruits',
-      options: [
-        {
-          value: 'apple',
-          label: 'Apple',
-        },
-        {
-          value: 'banana',
-          label: 'Banana',
-        },
-        {
-          value: 'kiwi',
-          label: 'Kiwi',
-        },
-        {
-          value: 'orange',
-          label: 'Orange',
-        },
-        {
-          value: 'pear',
-          label: 'Pear',
-        },
-      ],
+      label: 'Checkbox',
+      value: false,
+      required: true,
     },
     {
       type: 'radio',
+      name: 'radio',
       id: generateId(),
-      title: 'Preferred language',
+      label: 'Radio',
+      required: true,
       options: [
-        {
-          value: 'english',
-          label: 'English',
-        },
-        {
-          value: 'spanish',
-          label: 'Spanish',
-        },
-        {
-          value: 'french',
-          label: 'French',
-        },
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', label: 'Option 3' },
       ],
     },
+    {
+      type: 'textarea',
+      id: generateId(),
+      label: 'Textarea',
+      value: 'This is a textarea',
+      required: true,
+    },
   ],
-  formId: generateId(),
 };
