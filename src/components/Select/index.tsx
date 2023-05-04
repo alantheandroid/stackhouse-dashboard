@@ -6,7 +6,13 @@ import { TextField } from '@mui/material';
 
 type Props = {} & Pick<
   AutocompleteProps<any, false, false, false>,
-  'className' | 'value' | 'onChange' | 'getOptionLabel' | 'options'
+  | 'className'
+  | 'value'
+  | 'onChange'
+  | 'getOptionLabel'
+  | 'options'
+  | 'fullWidth'
+  | 'multiple'
 >;
 
 function Select({ options, value, onChange, getOptionLabel, ...props }: Props) {
@@ -15,7 +21,6 @@ function Select({ options, value, onChange, getOptionLabel, ...props }: Props) {
   return (
     <Autocomplete
       options={options}
-      // getOptionLabel={(option) => option.label}
       value={selectValue}
       onChange={(event: any, newValue: string | null) =>
         setSelectValue(newValue)
