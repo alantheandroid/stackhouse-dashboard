@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import './index.css';
 import App from './App';
 import { store } from './features/store';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@mui/material';
 import DashBoardTheme from './styles/theme';
+import CssBaseline from '@mui/material/CssBaseline/CssBaseline';
 
-const appTheme = DashBoardTheme()
+const appTheme = DashBoardTheme();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,7 +17,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={appTheme}>
-        <App />
+        <CssBaseline>
+          <App />
+        </CssBaseline>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>
