@@ -10,14 +10,6 @@ function Home() {
     <>
       <Searchbar placeholder="Find ticket" onChange={() => {}} />
       <DataGrid rows={rows} columns={columns} checkboxSelection hidefooter />
-      TEST Controlled form components
-      <Input />
-      <Select
-        options={[
-          // { label: 'None', value: '' },
-          { label: 'Option', value: 'option' },
-        ]}
-      />
     </>
   );
 }
