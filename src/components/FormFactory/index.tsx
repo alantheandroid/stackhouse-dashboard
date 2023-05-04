@@ -27,6 +27,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
                 options={element.options}
                 inputType={element.inputType}
                 elementId={element.id}
+                name={element.name}
               />
             </FormElementContainer>
           );

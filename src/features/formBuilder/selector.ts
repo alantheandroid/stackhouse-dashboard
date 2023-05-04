@@ -14,13 +14,12 @@ export const selectForms = createSelector(
 
 export const makeSelectElementValueByElementId = (elementId: string) =>
   createSelector(selectForms, (forms) => {
-    let value
     forms.forEach((form) => {
       form.elements.forEach((element) => {
         if (element.id === elementId) {
-          value = element.value;
+          return element.value;
         }
       });
     });
-    return value;
+    return undefined;
   });

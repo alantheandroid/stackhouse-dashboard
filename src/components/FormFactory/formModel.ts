@@ -8,6 +8,7 @@ export type FormElementType = {
   disabled?: boolean;
   required?: boolean;
   isDisabled?: boolean;
+  name?: string;
 };
 
 export type FormType = {
@@ -16,6 +17,6 @@ export type FormType = {
 };
 
 export type OptionsType = {
-  value: string;
+  value: string
   label: string;
 };

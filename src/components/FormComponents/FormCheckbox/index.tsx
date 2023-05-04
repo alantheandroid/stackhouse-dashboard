@@ -3,7 +3,10 @@ import React from 'react';
 import Text from '../../Text';
 import { Checkbox } from '../../Checkbox';
 import { FormElementProps } from '../formElementsProps';
-import { makeSelectElementValueByElementId } from '../../../features/formBuilder/selector';
+import {
+  makeSelectElementValueByElementId,
+  selectForms,
+} from '../../../features/formBuilder/selector';
 import { useDispatch, useSelector } from 'react-redux';
 import { formBuilderActions } from '../../../features/formBuilder/slice';
 
@@ -17,9 +20,11 @@ export const FormCheckbox = ({
   const dispatch = useDispatch();
   const value: boolean | undefined = useSelector(
     makeSelectElementValueByElementId(elementId)
-  ) satisfies boolean | undefined;
+  )
 
-  const handleChange = (value: boolean) => {
+  console.log('value', value);
+
+  const handleChange = (event: boolean) => {
     dispatch(formBuilderActions.updateElementValue({ elementId, value }));
   };
 

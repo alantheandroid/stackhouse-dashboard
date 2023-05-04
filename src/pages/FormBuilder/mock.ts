@@ -13,6 +13,7 @@ export const mockForm: FormType = {
       label: 'First Name',
       value: 'John',
       required: true,
+      inputType: 'text',
     },
     {
       type: 'input',
@@ -20,6 +21,7 @@ export const mockForm: FormType = {
       label: 'Last Name',
       value: 'Doe',
       required: true,
+      inputType: 'text',
     },
     {
       type: 'input',
@@ -27,6 +29,7 @@ export const mockForm: FormType = {
       label: 'Age',
       value: '30',
       required: true,
+      inputType: 'number',
     },
     {
       type: 'input',
@@ -34,6 +37,7 @@ export const mockForm: FormType = {
       label: 'Date of Birth',
       value: '1990-01-01',
       required: true,
+      inputType: 'date',
     },
     {
       type: 'select',
@@ -51,20 +55,20 @@ export const mockForm: FormType = {
       type: 'checkbox',
       id: generateId(),
       label: 'Checkbox',
-      value: 'checbox',
+      value: false,
       required: true,
     },
     {
       type: 'radio',
+      name: 'radio',
       id: generateId(),
+      label: 'Radio',
+      required: true,
       options: [
         { value: '1', label: 'Option 1' },
         { value: '2', label: 'Option 2' },
         { value: '3', label: 'Option 3' },
       ],
-      label: 'Radio',
-      value: '1',
-      required: true,
     },
     {
       type: 'textarea',

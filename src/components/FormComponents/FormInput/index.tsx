@@ -19,7 +19,7 @@ export const FormInput = ({
   const dispatch = useDispatch();
   const value: string | undefined = useSelector(
     makeSelectElementValueByElementId(elementId)
-  ) satisfies string | undefined;
+  )
 
   const handleChange = (value: string) => {
     dispatch(formBuilderActions.updateElementValue({ elementId, value }));

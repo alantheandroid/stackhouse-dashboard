@@ -16,6 +16,12 @@ type FormBuilderProps = {
 };
 
 export const FormBuilder = ({ valueFromState }: FormBuilderProps) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(formBuilderActions.addForm(mockForm));
+  }, [dispatch]);
+
   return (
     <div>
       <FormFactory form={mockForm} value={valueFromState} />
