@@ -3,31 +3,27 @@ import { Box } from '@mui/material'
 import Text from '../../Text'
 import { Input } from '../../Input'
 import { OptionsType } from '../../FormFactory/formModel'
+import { FormElementProps } from '../formElementsProps';
+import { useDispatch, useSelector } from 'react-redux'
+import { makeSelectElementValueByElementId } from '../../../features/formBuilder/selector'
+import { formBuilderActions } from '../../../features/formBuilder/slice'
 
-
-type Props = {
-  label: string
-  value?: string
-  disabled?: boolean
-  required?: boolean
-  isDisabled?: boolean
-  inputType?: string
-  options?: OptionsType[]
-  onChange: (value: string) => void
-}
 
 export const FormInput = ({
   label,
-  value,
   disabled,
   isDisabled,
   inputType,
-  onChange,
-}: Props) => {
-  
+  elementId
+}: FormElementProps) => {
+  const dispatch = useDispatch();
+  const value: string | undefined = useSelector(
+    makeSelectElementValueByElementId(elementId)
+  ) satisfies string | undefined;
+
   const handleChange = (value: string) => {
-    onChange(value)
-  }
+    dispatch(formBuilderActions.updateElementValue({ elementId, value }));
+  };
   const handleDisabled = disabled ?? isDisabled
   return (
     <Box flexDirection="column" gap="4px">
@@ -39,7 +35,7 @@ export const FormInput = ({
         value={value}
         placeholder={label}
         disabled={handleDisabled}
-        onChange={handleChange}
+        onChange={(e) => handleChange(e)}
       />
     </Box>
   )

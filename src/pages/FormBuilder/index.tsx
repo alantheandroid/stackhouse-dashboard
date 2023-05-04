@@ -9,24 +9,16 @@ import { mockForm } from './mock';
 import { useDispatch } from 'react-redux';
 import { CompoundMsgType } from '../../features/compoundMsg/model';
 import { FormElementType } from '../../components/FormFactory/formModel';
+import { formBuilderActions } from '../../features/formBuilder/slice';
 
 type FormBuilderProps = {
   valueFromState: CompoundMsgType | undefined;
 };
 
-const onChangeElement = (event: any) => {
-  console.log('event = ', event);
-  return event.target.value;
-};
-
 export const FormBuilder = ({ valueFromState }: FormBuilderProps) => {
   return (
     <div>
-      <FormFactory
-        onChange={onChangeElement}
-        form={mockForm}
-        value={valueFromState}
-      />
+      <FormFactory form={mockForm} value={valueFromState} />
     </div>
   );
 };

@@ -1,26 +1,24 @@
 import React from 'react';
 import { OptionsType } from '../../FormFactory/formModel';
-
-type Props = {
-  label: string;
-  value?: string;
-  disabled?: boolean;
-  required?: boolean;
-  isDisabled?: boolean;
-  options?: OptionsType[]
-  onChange: (value: string) => void;
-};
+import { FormElementProps } from '../formElementsProps';
+import { useDispatch, useSelector } from 'react-redux';
+import { makeSelectElementValueByElementId } from '../../../features/formBuilder/selector';
+import { formBuilderActions } from '../../../features/formBuilder/slice';
 
 export const FormSelect = ({
   label,
-  value,
   disabled,
   isDisabled,
   options,
-  onChange,
-}: Props) => {
+  elementId
+}: FormElementProps) => {
+  const dispatch = useDispatch();
+  const value: string | undefined = useSelector(
+    makeSelectElementValueByElementId(elementId)
+  ) satisfies string | undefined;
+
   const handleChange = (value: string) => {
-    onChange(value);
+    dispatch(formBuilderActions.updateElementValue({ elementId, value }));
   };
   const handleDisabled = disabled ?? isDisabled;
   return (

@@ -11,8 +11,6 @@ function Home() {
   <>
     <Searchbar placeholder='Find ticket' onChange={() => {}}/>
     <DataGrid rows={rows} columns={columns} checkboxSelection hidefooter/>
-    <FormCheckbox label='prova' onChange={() => {}}/>
-    <FormInput label='inpit' onChange={() => {}} />
   </>  
   );
 }

@@ -4,7 +4,7 @@ export type FormElementType = {
   id: string;
   options?: OptionsType[];
   label: string;
-  value?: string;
+  value?: string | boolean
   disabled?: boolean;
   required?: boolean;
   isDisabled?: boolean;
