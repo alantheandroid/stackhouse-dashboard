@@ -17,7 +17,6 @@ export const FormInput = ({
   formId,
   onChange
 }: FormElementProps) => {
-  const dispatch = useDispatch();
   const value: unknown = useSelector(
     makeSelectElementValueByElementId(formId, elementId)
   );

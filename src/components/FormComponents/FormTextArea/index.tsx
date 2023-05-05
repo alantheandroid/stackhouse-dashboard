@@ -15,7 +15,6 @@ export const FormTextArea = ({
   formId,
   onChange,
 }: FormElementProps) => {
-  const dispatch = useDispatch();
   const value: unknown = useSelector(
     makeSelectElementValueByElementId(formId, elementId)
   );

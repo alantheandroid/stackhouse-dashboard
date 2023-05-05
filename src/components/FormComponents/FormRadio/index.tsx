@@ -28,7 +28,6 @@ export const FormRadio = ({
   onChange
 }: FormElementProps) => {
   const handleDisabled = disabled ?? isDisabled;
-  const dispatch = useDispatch();
   const value = useSelector(
     makeSelectElementValueByElementId(formId, elementId)
   );
