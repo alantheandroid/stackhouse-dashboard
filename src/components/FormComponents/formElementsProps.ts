@@ -10,4 +10,5 @@ export type FormElementProps = {
   elementId: string;
   name?: string;
   options?: OptionsType[];
+  onChange: (elementId: string, value: unknown) => void;
 };

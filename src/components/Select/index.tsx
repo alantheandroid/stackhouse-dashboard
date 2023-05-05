@@ -16,15 +16,15 @@ type Props = {
 };
 
 export const Select = (props: Props) => {
-  const { value, disabled, onChange, selectProps, options } = props;
+  const { value, disabled, onChange, selectProps, options = [] } = props;
   return (
     <MuiSelect
       value={value}
       disabled={disabled}
-      onChange={({ target }) => onChange?.(target.value)}
+      onChange={({ target }) => onChange(target.value)}
       {...selectProps}
     >
-      {options?.map((option) => (
+      {options.map((option) => (
         <MenuItem key={option.label} value={option.value}>
           {option.label}
         </MenuItem>

@@ -16,18 +16,13 @@ export const FormCheckbox = ({
   isDisabled,
   elementId,
   formId,
+  onChange
 }: FormElementProps) => {
   const handleDisabled = disabled ?? isDisabled;
   const dispatch = useDispatch();
   const value: unknown = useSelector(
     makeSelectElementValueByElementId(formId, elementId)
   );
-
-  const handleChange = (event: boolean) => {
-    dispatch(
-      formBuilderActions.updateElementValue({ id: elementId, value: event })
-    );
-  };
 
   return (
     <Box flexDirection="column" gap="4px" alignItems="center">
@@ -37,7 +32,7 @@ export const FormCheckbox = ({
       <Checkbox
         checked={value as boolean}
         disabled={handleDisabled}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => onChange(elementId, e)}
       />
     </Box>
   );

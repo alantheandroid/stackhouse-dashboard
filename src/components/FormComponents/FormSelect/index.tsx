@@ -12,17 +12,13 @@ export const FormSelect = ({
   isDisabled,
   options,
   elementId,
-  formId
+  formId,
+  onChange
 }: FormElementProps) => {
   const dispatch = useDispatch();
   const value: unknown = useSelector(
     makeSelectElementValueByElementId(formId, elementId)
   ) 
-
-  const handleChange = (e: unknown) => {
-    const value = e as string
-    dispatch(formBuilderActions.updateElementValue({ id: elementId, value }));
-  };
 
   const handleDisabled = disabled ?? isDisabled;
 
@@ -32,7 +28,7 @@ export const FormSelect = ({
       <Select
         value={value as string}
         disabled={handleDisabled}
-        onChange={handleChange}
+        onChange={(e) => onChange(elementId, e)}
         options={options}
        />
     </div>

@@ -14,17 +14,14 @@ export const FormInput = ({
   isDisabled,
   inputType,
   elementId,
-  formId
+  formId,
+  onChange
 }: FormElementProps) => {
   const dispatch = useDispatch();
   const value: unknown = useSelector(
     makeSelectElementValueByElementId(formId, elementId)
   );
 
-
-  const handleChange = (value: string) => {
-    dispatch(formBuilderActions.updateElementValue({ id: elementId, value }));
-  };
   const handleDisabled = disabled ?? isDisabled;
   return (
     <Box flexDirection="column" gap="4px">
@@ -36,7 +33,7 @@ export const FormInput = ({
         value={value as string}
         placeholder={label}
         disabled={handleDisabled}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => onChange(elementId, e)}
       />
     </Box>
   );

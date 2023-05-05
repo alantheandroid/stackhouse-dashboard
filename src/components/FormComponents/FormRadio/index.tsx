@@ -24,23 +24,14 @@ export const FormRadio = ({
   elementId,
   name,
   options,
-  formId
+  formId,
+  onChange
 }: FormElementProps) => {
   const handleDisabled = disabled ?? isDisabled;
   const dispatch = useDispatch();
-  const [selectedValue, setSelectedValue] = useState<unknown>(
-    useSelector(makeSelectElementValueByElementId(formId, elementId))
+  const value = useSelector(
+    makeSelectElementValueByElementId(formId, elementId)
   );
-
-  const handleChange = (value: string) => {
-    setSelectedValue(value);
-    dispatch(
-      formBuilderActions.updateElementValue({
-        id: elementId,
-        value,
-      })
-    );
-  };
 
   return (
     <Box flexDirection="column" gap="4px" alignItems="center">
@@ -51,10 +42,10 @@ export const FormRadio = ({
         <Box key={option.value}>
           <Text>{option.label}</Text>
           <Radio
-            checked={selectedValue === option.value}
+            checked={value === option.value}
             disabled={handleDisabled}
             name={name}
-            onChange={() => handleChange(option.value)}
+            onChange={(e) => onChange(elementId, e)}
           />
         </Box>
       ))}

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { FormElementContainer } from '../FormElementContainer';
 import { CompoundMsgType } from '../../features/compoundMsg/model';
 import { elementGeneratorMap } from './elementMapper';
+import { formBuilderActions } from '../../features/formBuilder/slice';
+import { useDispatch } from 'react-redux';
 
 type FormFactoryProps = {
   form: FormType | undefined;
@@ -10,6 +12,10 @@ type FormFactoryProps = {
 };
 
 export const FormFactory = ({ form }: FormFactoryProps) => {
+  const dispatch = useDispatch();
+  const onChange = (elementId: string, value: unknown) => {
+    dispatch(formBuilderActions.updateElementValue({ id: elementId, value }));
+  };
   return (
     <>
       {form?.elements.map((element) => {
@@ -27,6 +33,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
                 inputType={element.inputType}
                 elementId={element.id}
                 name={element.name}
+                onChange={onChange}
               />
             </FormElementContainer>
           );
