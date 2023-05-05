@@ -4,6 +4,7 @@ import { FormElementProps } from '../formElementsProps';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeSelectElementValueByElementId } from '../../../features/formBuilder/selector';
 import { formBuilderActions } from '../../../features/formBuilder/slice';
+import { Select } from '../../Select';
 
 export const FormSelect = ({
   label,
@@ -18,24 +19,23 @@ export const FormSelect = ({
     makeSelectElementValueByElementId(formId, elementId)
   ) 
 
-  const handleChange = (value: string) => {
+  const handleChange = (e: unknown) => {
+    const value = e as string
     dispatch(formBuilderActions.updateElementValue({ id: elementId, value }));
   };
+
   const handleDisabled = disabled ?? isDisabled;
+
   return (
     <div>
       <label>{label}</label>
-      <select
+      <Select
         value={value as string}
         disabled={handleDisabled}
-        onChange={(e) => handleChange(e.target.value)}
-      >
-        {options?.map((option) => (
-          <option key={option.label} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
+        onChange={handleChange}
+        options={options}
+       />
     </div>
   );
+
 };
