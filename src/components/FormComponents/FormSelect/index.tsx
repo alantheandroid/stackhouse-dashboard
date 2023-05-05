@@ -13,24 +13,24 @@ export const FormSelect = ({
   options,
   elementId,
   formId,
-  onChange
+  onChange,
 }: FormElementProps) => {
   const value: unknown = useSelector(
     makeSelectElementValueByElementId(formId, elementId)
-  ) 
+  );
 
   const handleDisabled = disabled ?? isDisabled;
 
   return (
     <div>
       <label>{label}</label>
+      <br />
       <Select
         value={value as string}
         disabled={handleDisabled}
         onChange={(e) => onChange(elementId, e)}
         options={options}
-       />
+      />
     </div>
   );
-
 };

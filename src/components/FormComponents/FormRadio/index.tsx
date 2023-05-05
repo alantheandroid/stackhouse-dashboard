@@ -24,7 +24,7 @@ export const FormRadio = ({
   elementId,
   options,
   formId,
-  onChange
+  onChange,
 }: FormElementProps) => {
   const handleDisabled = disabled ?? isDisabled;
   const value = useSelector(
@@ -43,7 +43,7 @@ export const FormRadio = ({
             checked={value === option.value}
             disabled={handleDisabled}
             name={label}
-            onChange={(e) => onChange(elementId, e)}
+            onChange={() => onChange(elementId, option.value)}
           />
         </Box>
       ))}

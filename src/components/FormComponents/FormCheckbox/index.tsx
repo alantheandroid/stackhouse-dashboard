@@ -16,7 +16,7 @@ export const FormCheckbox = ({
   isDisabled,
   elementId,
   formId,
-  onChange
+  onChange,
 }: FormElementProps) => {
   const handleDisabled = disabled ?? isDisabled;
   const value: unknown = useSelector(
