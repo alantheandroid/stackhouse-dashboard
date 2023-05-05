@@ -31,7 +31,7 @@ export const FormTextArea = ({
         [{ color: [] }, { background: [] }],
         [{ list: 'ordered' }, { list: 'bullet' }],
         [{ align: [] }],
-        ['link', 'image', 'video'],
+        ['link'], // it's also possible to also add an image and a video
         ['clean'],
       ],
     },

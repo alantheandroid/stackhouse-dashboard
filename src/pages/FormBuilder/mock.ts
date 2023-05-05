@@ -74,7 +74,7 @@ export const mockForm: FormType = {
       type: 'textarea',
       id: generateId(),
       label: 'Textarea',
-      value: 'This is a textarea',
+      value: 'Enter your text here',
       required: true,
     },
   ],
