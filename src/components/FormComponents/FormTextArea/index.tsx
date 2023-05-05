@@ -11,7 +11,7 @@ export const FormTextArea = ({
   label,
   disabled,
   isDisabled,
-  elementId
+  elementId,
 }: FormElementProps) => {
   const dispatch = useDispatch();
   const value: string | undefined = useSelector(
@@ -19,7 +19,7 @@ export const FormTextArea = ({
   ) satisfies string | undefined;
 
   const handleChange = (value: string) => {
-    dispatch(formBuilderActions.updateElementValue({ elementId, value }));
+    dispatch(formBuilderActions.updateElementValue({ id: elementId, value }));
   };
 
   const handleDisabled = disabled ?? isDisabled;

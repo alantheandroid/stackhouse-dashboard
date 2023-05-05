@@ -27,7 +27,7 @@ export const FormRadio = ({
 }: FormElementProps) => {
   const handleDisabled = disabled ?? isDisabled;
   const dispatch = useDispatch();
-  const [selectedValue, setSelectedValue] = useState<string | boolean | undefined>(
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(
     useSelector(makeSelectElementValueByElementId(elementId))
   );
 
@@ -35,8 +35,8 @@ export const FormRadio = ({
     setSelectedValue(value);
     dispatch(
       formBuilderActions.updateElementValue({
-        elementId,
-        value: selectedValue === value,
+        id: elementId,
+        value,
       })
     );
   };

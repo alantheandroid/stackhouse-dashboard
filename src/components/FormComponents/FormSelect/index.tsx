@@ -18,7 +18,7 @@ export const FormSelect = ({
   ) 
 
   const handleChange = (value: string) => {
-    dispatch(formBuilderActions.updateElementValue({ elementId, value }));
+    dispatch(formBuilderActions.updateElementValue({ id: elementId, value }));
   };
   const handleDisabled = disabled ?? isDisabled;
   return (

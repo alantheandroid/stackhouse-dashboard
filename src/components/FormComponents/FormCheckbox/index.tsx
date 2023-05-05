@@ -20,12 +20,12 @@ export const FormCheckbox = ({
   const dispatch = useDispatch();
   const value: boolean | undefined = useSelector(
     makeSelectElementValueByElementId(elementId)
-  )
-
-  console.log('value', value);
+  );
 
   const handleChange = (event: boolean) => {
-    dispatch(formBuilderActions.updateElementValue({ elementId, value }));
+    dispatch(
+      formBuilderActions.updateElementValue({ id: elementId, value: event })
+    );
   };
 
   return (
