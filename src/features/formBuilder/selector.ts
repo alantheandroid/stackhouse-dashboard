@@ -12,14 +12,22 @@ export const selectForms = createSelector(
   (formBuilder: FormBuilderType) => formBuilder.forms
 );
 
-export const makeSelectElementValueByElementId = (elementId: string) =>
+export const makeSelectFormById = (formId: string) =>
   createSelector(selectForms, (forms) => {
-    forms.forEach((form) => {
-      form.elements.forEach((element) => {
-        if (element.id === elementId) {
-          return element.value;
-        }
-      });
-    });
+    return forms.find((form) => form.formId === formId);
+  });
+
+export const makeSelectElementValueByElementId = (
+  formId: string,
+  elementId: string
+) =>
+  createSelector(selectForms, (forms) => {
+    const form = forms.find((form) => form.formId === formId);
+    if (form !== undefined) {
+      const element = form.elements.find((element) => element.id === elementId);
+      if (element !== undefined) {
+        return element.value;
+      }
+    }
     return undefined;
   });

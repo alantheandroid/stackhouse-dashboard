@@ -24,11 +24,12 @@ export const FormRadio = ({
   elementId,
   name,
   options,
+  formId
 }: FormElementProps) => {
   const handleDisabled = disabled ?? isDisabled;
   const dispatch = useDispatch();
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(
-    useSelector(makeSelectElementValueByElementId(elementId))
+  const [selectedValue, setSelectedValue] = useState<unknown>(
+    useSelector(makeSelectElementValueByElementId(formId, elementId))
   );
 
   const handleChange = (value: string) => {

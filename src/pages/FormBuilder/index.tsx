@@ -14,7 +14,7 @@ import {
 } from '../../components/FormFactory/formModel';
 import { formBuilderActions } from '../../features/formBuilder/slice';
 import { generateId } from '../../utils/formIdGenerator';
-import { selectForms } from '../../features/formBuilder/selector';
+import { makeSelectFormById } from '../../features/formBuilder/selector';
 
 type FormBuilderProps = {
   valueFromState: CompoundMsgType | undefined;
@@ -22,7 +22,7 @@ type FormBuilderProps = {
 
 export const FormBuilder = ({ valueFromState }: FormBuilderProps) => {
   const dispatch = useDispatch();
-  const forms = useSelector(selectForms);
+  const formFromState = useSelector(makeSelectFormById(mockForm.formId));
   const [form, setForm] = useState<FormType>();
 
   useEffect(() => {
@@ -30,11 +30,10 @@ export const FormBuilder = ({ valueFromState }: FormBuilderProps) => {
   }, []);
 
   useEffect(() => {
-    const form = forms[0];
-    if (form !== undefined) {
-      setForm(form);
+    if (formFromState !== undefined) {
+      setForm(formFromState);
     }
-  }, [forms]);
+  }, [formFromState]);
 
   const handleAddInput = () => {
     const newElement: FormElementType = {

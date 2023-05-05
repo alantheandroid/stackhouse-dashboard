@@ -45,7 +45,6 @@ const formBuilderSlice = createSlice({
     },
     updateElementValue: (state, action) => {
       const { id, value } = action.payload;
-      console.log('ID = ', id, ' value = ', value);
       state.forms.forEach((form) => {
         form.elements.forEach((element) => {
           if (element.id === id) {

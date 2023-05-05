@@ -15,11 +15,12 @@ export const FormCheckbox = ({
   disabled,
   isDisabled,
   elementId,
+  formId,
 }: FormElementProps) => {
   const handleDisabled = disabled ?? isDisabled;
   const dispatch = useDispatch();
-  const value: boolean | undefined = useSelector(
-    makeSelectElementValueByElementId(elementId)
+  const value: unknown = useSelector(
+    makeSelectElementValueByElementId(formId, elementId)
   );
 
   const handleChange = (event: boolean) => {
@@ -34,7 +35,7 @@ export const FormCheckbox = ({
         <Text>{label}</Text>
       </Box>
       <Checkbox
-        checked={value}
+        checked={value as boolean}
         disabled={handleDisabled}
         onChange={(e) => handleChange(e)}
       />

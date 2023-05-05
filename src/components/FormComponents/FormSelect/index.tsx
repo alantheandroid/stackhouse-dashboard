@@ -10,11 +10,12 @@ export const FormSelect = ({
   disabled,
   isDisabled,
   options,
-  elementId
+  elementId,
+  formId
 }: FormElementProps) => {
   const dispatch = useDispatch();
-  const value: string | undefined = useSelector(
-    makeSelectElementValueByElementId(elementId)
+  const value: unknown = useSelector(
+    makeSelectElementValueByElementId(formId, elementId)
   ) 
 
   const handleChange = (value: string) => {
@@ -25,7 +26,7 @@ export const FormSelect = ({
     <div>
       <label>{label}</label>
       <select
-        value={value}
+        value={value as string}
         disabled={handleDisabled}
         onChange={(e) => handleChange(e.target.value)}
       >

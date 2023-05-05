@@ -14,10 +14,11 @@ export const FormInput = ({
   isDisabled,
   inputType,
   elementId,
+  formId
 }: FormElementProps) => {
   const dispatch = useDispatch();
-  const value: string | undefined = useSelector(
-    makeSelectElementValueByElementId(elementId)
+  const value: unknown = useSelector(
+    makeSelectElementValueByElementId(formId, elementId)
   );
 
 
@@ -32,7 +33,7 @@ export const FormInput = ({
       </Box>
       <Input
         inputType={inputType}
-        value={value}
+        value={value as string}
         placeholder={label}
         disabled={handleDisabled}
         onChange={(e) => handleChange(e)}

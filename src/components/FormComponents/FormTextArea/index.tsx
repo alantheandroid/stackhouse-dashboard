@@ -12,11 +12,12 @@ export const FormTextArea = ({
   disabled,
   isDisabled,
   elementId,
+  formId
 }: FormElementProps) => {
   const dispatch = useDispatch();
-  const value: string | undefined = useSelector(
-    makeSelectElementValueByElementId(elementId)
-  ) satisfies string | undefined;
+  const value: unknown = useSelector(
+    makeSelectElementValueByElementId(formId, elementId)
+  )
 
   const handleChange = (value: string) => {
     dispatch(formBuilderActions.updateElementValue({ id: elementId, value }));
@@ -29,7 +30,7 @@ export const FormTextArea = ({
         <Text>{label}</Text>
       </Box>
       <textarea
-        value={value}
+        value={value as string}
         placeholder={label}
         disabled={handleDisabled}
         onChange={(e) => handleChange(e.target.value)}
