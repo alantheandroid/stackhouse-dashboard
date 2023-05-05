@@ -1,30 +1,34 @@
 import React from 'react';
-import { OptionsType } from '../../FormFactory/formModel';
 import { FormElementProps } from '../formElementsProps';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeSelectElementValueByElementId } from '../../../features/formBuilder/selector';
 import { formBuilderActions } from '../../../features/formBuilder/slice';
+import { Box } from '@mui/material';
+import Text from '../../Text';
+import Select from '../../Select';
 
 export const FormSelect = ({
   label,
   disabled,
   isDisabled,
   options,
-  elementId
+  elementId,
 }: FormElementProps) => {
   const dispatch = useDispatch();
   const value: string | undefined = useSelector(
     makeSelectElementValueByElementId(elementId)
-  ) 
+  );
 
   const handleChange = (value: string) => {
     dispatch(formBuilderActions.updateElementValue({ elementId, value }));
   };
   const handleDisabled = disabled ?? isDisabled;
   return (
-    <div>
-      <label>{label}</label>
-      <select
+    <Box flexDirection="column" gap="4px" alignItems="center">
+      <Box justifyContent="flex-start">
+        <Text>{label}</Text>
+      </Box>
+      {/* <select
         value={value}
         disabled={handleDisabled}
         onChange={(e) => handleChange(e.target.value)}
@@ -34,7 +38,13 @@ export const FormSelect = ({
             {option.label}
           </option>
         ))}
-      </select>
-    </div>
+      </select> */}
+      <Select
+        value={value}
+        disabled={handleDisabled}
+        onChange={handleChange}
+        options={options}
+      />
+    </Box>
   );
 };

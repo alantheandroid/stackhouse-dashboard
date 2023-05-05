@@ -1,8 +1,6 @@
 export type FormElementType = {
   type: 'input' | 'select' | 'checkbox' | 'radio' | 'textarea';
   inputType?: 'text' | 'number' | 'date';
-  type: 'input' | 'select' | 'checkbox' | 'radio' | 'textarea';
-  inputType?: 'text' | 'number' | 'date';
   id: string;
   options?: OptionsType[];
   label: string;
