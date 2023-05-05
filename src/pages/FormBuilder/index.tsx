@@ -3,13 +3,18 @@
 // The form preview is a component that renders the form created by the form builder
 // the form builder is a component that renders the form elements
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormFactory } from '../../components/FormFactory';
 import { mockForm } from './mock';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CompoundMsgType } from '../../features/compoundMsg/model';
-import { FormElementType } from '../../components/FormFactory/formModel';
+import {
+  FormElementType,
+  FormType,
+} from '../../components/FormFactory/formModel';
 import { formBuilderActions } from '../../features/formBuilder/slice';
+import { generateId } from '../../utils/formIdGenerator';
+import { selectForms } from '../../features/formBuilder/selector';
 
 type FormBuilderProps = {
   valueFromState: CompoundMsgType | undefined;
@@ -17,14 +22,40 @@ type FormBuilderProps = {
 
 export const FormBuilder = ({ valueFromState }: FormBuilderProps) => {
   const dispatch = useDispatch();
+  const forms = useSelector(selectForms);
+  const [form, setForm] = useState<FormType>();
 
   useEffect(() => {
     dispatch(formBuilderActions.addForm(mockForm));
-  }, [dispatch]);
+  }, []);
+
+  useEffect(() => {
+    const form = forms[0];
+    if (form !== undefined) {
+      setForm(form);
+    }
+  }, [forms]);
+
+  const handleAddInput = () => {
+    const newElement: FormElementType = {
+      type: 'input',
+      id: generateId(),
+      name: 'newInput',
+      label: 'New Input',
+      inputType: 'text',
+      required: false,
+      disabled: false,
+      isDisabled: false,
+    };
+    console.log('new element ready');
+    const DTO = { formId: form?.formId, element: newElement };
+    dispatch(formBuilderActions.addElementToForm(DTO));
+  };
 
   return (
     <div>
-      <FormFactory form={mockForm} value={valueFromState} />
+      <FormFactory form={form} value={valueFromState} />
+      <button onClick={handleAddInput}>Add an input</button>
     </div>
   );
 };

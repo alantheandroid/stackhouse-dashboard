@@ -5,16 +5,14 @@ import { CompoundMsgType } from '../../features/compoundMsg/model';
 import { elementGeneratorMap } from './elementMapper';
 
 type FormFactoryProps = {
-  form: FormType;
+  form: FormType | undefined;
   value: CompoundMsgType | undefined;
 };
 
 export const FormFactory = ({ form }: FormFactoryProps) => {
-  const { elements } = form;
-
   return (
     <>
-      {elements.map((element) => {
+      {form?.elements.map((element) => {
         const Component = elementGeneratorMap[element.type];
         if (Component !== undefined) {
           return (
