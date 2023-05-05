@@ -60,7 +60,6 @@ export const mockForm: FormType = {
     },
     {
       type: 'radio',
-      name: 'radio',
       id: generateId(),
       label: 'Radio',
       required: true,

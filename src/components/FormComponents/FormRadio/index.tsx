@@ -22,7 +22,6 @@ export const FormRadio = ({
   disabled,
   isDisabled,
   elementId,
-  name,
   options,
   formId,
   onChange
@@ -43,7 +42,7 @@ export const FormRadio = ({
           <Radio
             checked={value === option.value}
             disabled={handleDisabled}
-            name={name}
+            name={label}
             onChange={(e) => onChange(elementId, e)}
           />
         </Box>

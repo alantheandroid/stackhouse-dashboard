@@ -8,7 +8,6 @@ export type FormElementProps = {
   isDisabled?: boolean;
   inputType?: string;
   elementId: string;
-  name?: string;
   options?: OptionsType[];
   onChange: (elementId: string, value: unknown) => void;
 };
