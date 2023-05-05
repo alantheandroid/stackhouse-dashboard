@@ -4,11 +4,11 @@ export type FormElementType = {
   id: string;
   options?: OptionsType[];
   label: string;
+  name?: string; // refactor
   value?: string | boolean
   disabled?: boolean;
   required?: boolean;
   isDisabled?: boolean;
-  name?: string;
 };
 
 export type FormType = {

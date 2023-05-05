@@ -18,7 +18,7 @@ export const FormFactory = ({ form }: FormFactoryProps) => {
           return (
             <FormElementContainer key={element.id} element={element}>
               <Component
-              formId={form.formId}
+                formId={form.formId}
                 disabled={element.disabled}
                 isDisabled={element.isDisabled}
                 required={element.required}

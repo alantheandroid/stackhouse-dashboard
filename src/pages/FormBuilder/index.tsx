@@ -39,14 +39,13 @@ export const FormBuilder = ({ valueFromState }: FormBuilderProps) => {
     const newElement: FormElementType = {
       type: 'input',
       id: generateId(),
-      name: 'newInput',
       label: 'New Input',
       inputType: 'text',
       required: false,
       disabled: false,
       isDisabled: false,
+      value: '',
     };
-    console.log('new element ready');
     const DTO = { formId: form?.formId, element: newElement };
     dispatch(formBuilderActions.addElementToForm(DTO));
   };
