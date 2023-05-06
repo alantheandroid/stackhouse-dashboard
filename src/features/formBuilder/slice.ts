@@ -44,14 +44,14 @@ const formBuilderSlice = createSlice({
       }
     },
     updateElementValue: (state, action) => {
-      const { id, value } = action.payload;
-      state.forms.forEach((form) => {
-        form.elements.forEach((element) => {
-          if (element.id === id) {
-            element.value = value;
-          }
-        });
-      });
+      const { id, value, formId } = action.payload;
+      const form = state.forms.find((form) => form.formId === formId);
+      if (form !== undefined) {
+        const element = form.elements.find((element) => element.id === id);
+        if (element !== undefined) {
+          element.value = value;
+        }
+      }
     },
   },
 });

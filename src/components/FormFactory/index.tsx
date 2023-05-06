@@ -14,7 +14,7 @@ type FormFactoryProps = {
 export const FormFactory = ({ form }: FormFactoryProps) => {
   const dispatch = useDispatch();
   const onChange = (elementId: string, value: unknown) => {
-    dispatch(formBuilderActions.updateElementValue({ id: elementId, value }));
+    dispatch(formBuilderActions.updateElementValue({ id: elementId, value, formId: form?.formId }));
   };
   return (
     <>
