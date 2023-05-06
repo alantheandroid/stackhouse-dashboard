@@ -74,7 +74,8 @@ export const mockForm: FormType = {
       type: 'textarea',
       id: generateId(),
       label: 'Textarea',
-      value: 'Enter your text here',
+      value:
+        '<h1><strong style="color: rgb(255, 255, 255); background-color: rgb(255, 153, 0);"><em>Inserisci il tuo testo qui</em></strong></h1>',
       required: true,
     },
   ],
